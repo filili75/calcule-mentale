@@ -4,101 +4,126 @@ from PySide6.QtGui import QFont
 
 
 APP_STYLE = """
+/* --- Main Window & Background --- */
 QWidget {
-    background-color: #F7E7D3;
-    color: #2F2A24;
-    font-family: "Trebuchet MS";
-    font-size: 13px;
-}
-QLabel#TitleMainLabel {
-    font-size: 24px;
-    font-weight: bold;
-    color: #2F2A24;
-}
-QLabel#TitleSubLabel {
+    background-color: #F0F2F5; /* Light Grey/White background */
+    color: #1C1E21; /* Dark text */
+    font-family: "Segoe UI", "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    color: #5B4636;
 }
-QLabel#OperationLabel {
-    font-size: 48px;
+
+/* --- Labels --- */
+QLabel#TitleMainLabel {
+    font-size: 28px;
     font-weight: bold;
-    color: #264653;
-    background-color: qlineargradient(
-        x1: 0,
-        y1: 0,
-        x2: 1,
-        y2: 1,
-        stop: 0 #FDF0E0,
-        stop: 1 #F6DDBD
-    );
-    border: 3px solid #E9C46A;
-    border-radius: 14px;
-    min-width: 170px;
-    min-height: 170px;
-    max-width: 170px;
-    max-height: 170px;
+    color: #1877F2; /* Standard Blue */
+    margin-bottom: 4px;
+}
+
+QLabel#TitleSubLabel {
+    font-size: 15px;
+    font-weight: 600;
+    color: #65676B; /* Grey subtext */
+    margin-bottom: 10px;
+}
+
+/* --- Operation Display --- */
+QLabel#OperationLabel {
+    font-size: 56px;
+    font-weight: bold;
+    color: #1C1E21;
+    background-color: #FFFFFF;
+    border: 2px solid #E4E6EB;
+    border-radius: 20px;
+    min-width: 180px;
+    min-height: 180px;
+    max-width: 180px;
+    max-height: 180px;
     padding: 0;
 }
+
+/* --- Feedback Label --- */
 QLabel#FeedbackLabel {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
+    color: #1C1E21; 
 }
 QLabel#FeedbackLabel[status="correct"] {
-    color: #2A9D8F;
+    color: #42B72A; /* Green */
 }
 QLabel#FeedbackLabel[status="wrong"] {
-    color: #E76F51;
+    color: #FA383E; /* Red */
 }
 QLabel#FeedbackLabel[status="error"] {
-    color: #B56576;
+    color: #F7B928; /* Yellow/Orange */
 }
+
+/* --- Buttons --- */
 QPushButton {
-    background-color: #F4A261;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 14px;
+    background-color: #E4E6EB;
+    color: #050505;
+    border: 1px solid #CED0D4;
+    border-radius: 10px;
+    padding: 8px 16px;
     font-weight: bold;
-    min-height: 34px;
+    min-height: 38px;
 }
 QPushButton:hover {
-    background-color: #E76F51;
+    background-color: #D8DADF;
 }
 QPushButton:pressed {
-    background-color: #D97A4A;
+    background-color: #1877F2;
+    color: #FFFFFF;
+    border-color: #1877F2;
 }
 QPushButton:disabled {
-    background-color: #DDBEA9;
-    color: #7A6B60;
+    background-color: #F0F2F5;
+    color: #BCC0C4;
+    border-color: #F0F2F5;
 }
-QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox {
-    background-color: #FFF7ED;
-    border: 2px solid #CDB8A1;
+
+/* --- Controls (Inputs, Combos) --- */
+QComboBox, QSpinBox, QDoubleSpinBox, QLineEdit {
+    background-color: #FFFFFF;
+    color: #1C1E21;
+    border: 1px solid #CED0D4;
     border-radius: 8px;
     padding: 6px 10px;
-    min-height: 30px;
+    min-height: 32px;
 }
-QComboBox:focus, QLineEdit:focus, QSpinBox:focus, QDoubleSpinBox:focus {
-    border-color: #E9C46A;
+QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus, QLineEdit:focus {
+    border-color: #1877F2;
+    background-color: #FFFFFF;
 }
+QComboBox::drop-down {
+    border: none;
+    width: 20px;
+}
+
+/* --- Group Boxes --- */
 QGroupBox {
-    border: 2px solid #E9C46A;
-    border-radius: 10px;
-    margin-top: 10px;
+    border: 1px solid #CED0D4;
+    border-radius: 12px;
+    margin-top: 12px;
+    background-color: #FFFFFF;
 }
 QGroupBox::title {
     subcontrol-origin: margin;
-    left: 10px;
+    left: 12px;
     padding: 0 6px 0 6px;
+    color: #65676B;
+    font-weight: bold;
 }
+
+/* --- Soroban View --- */
 QGraphicsView {
-    background: #FCEBD7;
-    border: 2px solid #CDB8A1;
-    border-radius: 12px;
+    background: transparent;
+    border: 1px solid #CED0D4;
+    border-radius: 16px;
 }
 """
 
 
 def apply_style(app) -> None:
     app.setStyleSheet(APP_STYLE)
-    app.setFont(QFont("Trebuchet MS", 10))
+    app.setFont(QFont("Segoe UI", 10))

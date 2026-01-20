@@ -27,9 +27,7 @@ class App(QApplication):
                 self.installTranslator(self.translator)
 
     def _wire_events(self) -> None:
-        self.main_window.training_page.lang_combo.currentTextChanged.connect(
-            self._on_language_changed
-        )
+        self.main_window.languageChanged.connect(self._on_language_changed)
 
     def _on_language_changed(self, lang_name: str) -> None:
         if lang_name == "English":
